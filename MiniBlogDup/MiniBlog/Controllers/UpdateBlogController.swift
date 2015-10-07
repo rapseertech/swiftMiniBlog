@@ -57,6 +57,28 @@ class UpdateBlogController: BaseController {
 //        } catch let error as NSError  {
 //            print("Could not save \(error), \(error.userInfo)")
 //        }
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+        let fetchRequest = NSFetchRequest(entityName: "BlogPost")
+        fetchRequest.predicate = NSPredicate(format: "title = %@", blogPostTitle!)
+        
+        do {
+            let fetchResults = try appDelegate.managedObjectContext.executeFetchRequest(fetchRequest) as? [BlogPost]
+                if fetchResults!.count != 0{
+                    
+                    let managedObject = fetchResults![0]
+                    managedObject.setValue(self.updateBlogView?.blogTitleTextField.text, forKey: "title")
+                    managedObject.setValue(self.updateBlogView?.blogPostTextView.text, forKey: "content")
+                    
+                    try managedContext.save()
+                }
+        }
+        catch let error as NSError {
+            print("\(error)")
+        }
+        self.performSegueWithIdentifier("UpdateToHomeSegue", sender: self)
     }
     
     // MARK: Controller Initializers

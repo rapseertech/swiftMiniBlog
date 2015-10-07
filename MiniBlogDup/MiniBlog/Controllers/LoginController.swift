@@ -32,6 +32,11 @@ class LoginController: BaseController, GIDSignInUIDelegate, SignInDelegate {
         // TODO(developer) Configure the sign-in button look/feel
         // ...
         
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "receiveToggleAuthUINotification:",
+            name: "ToggleAuthUINotification",
+            object: nil)
+        
     }
     
     // Implement these methods only if the GIDSignInUIDelegate is not a subclass of
@@ -61,6 +66,19 @@ class LoginController: BaseController, GIDSignInUIDelegate, SignInDelegate {
     
     func didTapSignOut(sender: AnyObject) {
         GIDSignIn.sharedInstance().signOut()
+    }
+    
+    @objc func receiveToggleAuthUINotification(notification: NSNotification) {
+        if (notification.name == "ToggleAuthUINotification") {
+//            self.toggleAuthUI()
+            if notification.userInfo != nil {
+                let userInfo:Dictionary<String,String!> =
+                notification.userInfo as! Dictionary<String,String!>
+//                self.statusText.text = userInfo["statusText"]
+                print(userInfo["statusText"])
+                self.performSegueWithIdentifier("LoginToHomeSegue", sender: self)
+            }
+        }
     }
     
 }

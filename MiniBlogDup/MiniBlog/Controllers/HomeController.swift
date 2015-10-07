@@ -26,6 +26,8 @@ class HomeController: BaseController, UITableViewDataSource, UITableViewDelegate
         self.homeView?.blogTable.dataSource = self
         self.homeView?.blogTable.delegate = self
         
+        self.navigationItem.setHidesBackButton(true, animated:true)
+        
         // Initialize UI Elements
         self.initializeNavigationBar()
         

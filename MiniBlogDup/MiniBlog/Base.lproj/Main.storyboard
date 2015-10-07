@@ -61,6 +61,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="mp4-70-eZp" kind="show" identifier="UpdateToHomeSegue" id="hTw-hb-a4H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CNe-ou-PSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,4 +106,7 @@
             <point key="canvasLocation" x="-110" y="302"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hTw-hb-a4H"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -42,9 +42,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //                let idToken = user.authentication.idToken // Safe to send to the server
                 let name = user.profile.name
 //                let email = user.profile.email
+                Session.sharedInstance.sessionName = name
+                print(Session.sharedInstance.sessionName)
                 print(userId)
                 print(name)
                 // ...
+                NSNotificationCenter.defaultCenter().postNotificationName(
+                    "ToggleAuthUINotification",
+                    object: nil,
+                    userInfo: ["statusText": "Signed in user:\n\(name)"])
             } else {
                 print("\(error.localizedDescription)")
             }
