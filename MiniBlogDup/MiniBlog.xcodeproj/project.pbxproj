@@ -146,8 +146,8 @@
 			children = (
 				92C1C6B11BC2F2FC005E822F /* HomeController.swift */,
 				92C1C6B31BC2F342005E822F /* BaseController.swift */,
-				92C1C6C31BC308D8005E822F /* AddBlogController.swift */,
 				67633DDE1BC3A6B50064D4F4 /* UpdateBlogController.swift */,
+				92C1C6C31BC308D8005E822F /* AddBlogController.swift */,
 				67633DE41BC3B2C80064D4F4 /* LoginController.swift */,
 			);
 			name = Controllers;

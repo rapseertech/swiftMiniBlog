@@ -66,6 +66,7 @@ class LoginController: BaseController, GIDSignInUIDelegate, SignInDelegate {
     
     func didTapSignOut(sender: AnyObject) {
         GIDSignIn.sharedInstance().signOut()
+        print("test")
     }
     
     @objc func receiveToggleAuthUINotification(notification: NSNotification) {

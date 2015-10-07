@@ -9,8 +9,19 @@
 import Foundation
 import UIKit
 
+protocol SignOutDelegate {
+    func didTapSignOut(sender: AnyObject)
+}
+
 class HomeView: BaseView{
+    
+    var delegate: SignOutDelegate?
     
     @IBOutlet weak var blogTable: UITableView!
     
+    @IBAction func didTapSignOut(sender: AnyObject) {
+        if self.delegate != nil && self.delegate?.didTapSignOut != nil{
+            self.delegate?.didTapSignOut(sender)
+        }
+    }
 }

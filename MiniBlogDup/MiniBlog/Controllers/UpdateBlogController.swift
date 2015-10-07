@@ -15,6 +15,7 @@ class UpdateBlogController: BaseController {
     var updateBlogView: AddBlogView?
     var blogPostTitle: String?
     var blogPostContent: String?
+    var blogAuthor: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +26,18 @@ class UpdateBlogController: BaseController {
         self.updateBlogView?.blogTitleTextField.text = blogPostTitle
         self.updateBlogView?.blogPostTextView.text = blogPostContent
         
+        if Session.sharedInstance.sessionName != blogAuthor {
+            self.updateBlogView?.blogTitleTextField.enabled = false
+            self.updateBlogView?.blogPostTextView.editable = false
+        }
+        
         // Initialize UI Elements
         self.initializeNavigationBar()
         
     }
     
     // MARK: CoreData Methods
-    func postBlog(){
+    func updateBlog(){
 //        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 //        let managedContext = appDelegate.managedObjectContext
 //        let entity =  NSEntityDescription.entityForName("BlogPost",
@@ -85,9 +91,13 @@ class UpdateBlogController: BaseController {
     
     func initializeNavigationBar(){
         
-        let addBlogButtonItem = UIBarButtonItem(title: "Update", style: .Plain, target: self, action: Selector("postBlog"))
+        let addBlogButtonItem = UIBarButtonItem(title: "Update", style: .Plain, target: self, action: Selector("updateBlog"))
         
         self.navigationItem.rightBarButtonItem = addBlogButtonItem
+        
+        if Session.sharedInstance.sessionName != blogAuthor {
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        }
         
     }
 }

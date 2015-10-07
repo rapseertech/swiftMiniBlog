@@ -42,7 +42,7 @@ class AddBlogController: BaseController{
             inManagedObjectContext:managedContext)
         let auth:Author = Author(entity: authEntity!,
             insertIntoManagedObjectContext: managedContext)
-        auth.name = readFromPlist("Default Author")
+        auth.name = Session.sharedInstance.sessionName
         
         blogPost.blogpost_author = auth
         

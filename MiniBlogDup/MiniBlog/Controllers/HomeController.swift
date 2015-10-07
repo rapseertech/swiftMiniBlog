@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class HomeController: BaseController, UITableViewDataSource, UITableViewDelegate{
+class HomeController: BaseController, UITableViewDataSource, UITableViewDelegate, SignOutDelegate, GIDSignInUIDelegate {
 
     var homeView: HomeView?
     var blogPosts: [BlogPost]?
@@ -27,6 +27,8 @@ class HomeController: BaseController, UITableViewDataSource, UITableViewDelegate
         self.homeView?.blogTable.delegate = self
         
         self.navigationItem.setHidesBackButton(true, animated:true)
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
         
         // Initialize UI Elements
         self.initializeNavigationBar()
@@ -108,11 +110,18 @@ class HomeController: BaseController, UITableViewDataSource, UITableViewDelegate
                 let blogPost:BlogPost = self.blogPosts![row!]
                 
                 dest.blogPostTitle = blogPost.title!
-                dest.updateBlogView?.blogPostTextView.text = blogPost.content!
                 dest.blogPostContent = blogPost.content!
+                dest.blogAuthor = blogPost.blogpost_author!.name!
             }
         }
     }
+    
+    
+    func didTapSignOut(sender: AnyObject) {
+        GIDSignIn.sharedInstance().signOut()
+        print("signout")
+    }
+    
     
 }
 
