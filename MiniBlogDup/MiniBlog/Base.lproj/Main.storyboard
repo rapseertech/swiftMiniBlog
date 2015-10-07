@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ghm-Sr-tjy">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--Login Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LoginController" customModule="MiniBlog" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vNw-7T-Bud"/>
+                    <connections>
+                        <segue destination="mp4-70-eZp" kind="show" identifier="LoginToHomeSegue" id="XjF-q8-nBn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="682" y="302"/>
+        </scene>
+        <!--Home Controller-->
+        <scene sceneID="f7y-AI-lpJ">
+            <objects>
+                <viewController id="mp4-70-eZp" customClass="HomeController" customModule="MiniBlog" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GAS-6d-ulG"/>
+                        <viewControllerLayoutGuide type="bottom" id="mnz-sM-eNh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yg1-O4-bY3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="G2s-zE-Nvy" kind="show" identifier="HomeToAddBlogSegue" id="moW-8V-S5P"/>
+                        <segue destination="1Yh-u1-PN5" kind="show" identifier="HomeToUpdateBlogSegue" id="5aQ-Qv-YRB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Op-uR-XHU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1468" y="302"/>
+        </scene>
+        <!--Update Blog Controller-->
+        <scene sceneID="1Yj-ia-iBt">
+            <objects>
+                <viewController id="1Yh-u1-PN5" customClass="UpdateBlogController" customModule="MiniBlog" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bsw-25-Jrs"/>
+                        <viewControllerLayoutGuide type="bottom" id="eGe-5S-I6S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8RT-IM-0pN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CNe-ou-PSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1468" y="1045"/>
+        </scene>
+        <!--Add Blog Controller-->
+        <scene sceneID="j9k-jF-YAG">
+            <objects>
+                <viewController id="G2s-zE-Nvy" customClass="AddBlogController" customModule="MiniBlog" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ag4-27-4zz"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oso-3f-1dM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yGz-Lf-1EG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2lw-8l-Wec" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2248" y="302"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Q8j-cE-r3L">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ghm-Sr-tjy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dDb-zi-LDY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="YrM-Th-P9d"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vuG-iL-yrI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-110" y="302"/>
+        </scene>
+    </scenes>
+</document>
